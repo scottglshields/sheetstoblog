@@ -1,0 +1,24 @@
+{
+  "source": "src",
+  "destination": "build",
+  "plugins": {
+    "metalsmith-drafts": true,
+    "metalsmith-collections": {
+      "blog": {
+        "pattern": "blog/*.json", // Updated pattern
+        "sortBy": "date",
+        "reverse": true
+      }
+    },
+    "metalsmith-markdownit": {},
+    "metalsmith-layouts": {
+      "engine": "handlebars",
+      "directory": "layouts",
+      "default": "post.hbs"
+    },
+    "metalsmith-assets": {
+      "source": "./images",
+      "destination": "./images"
+    }
+  }
+}
