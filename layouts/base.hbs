@@ -1,0 +1,20 @@
+---
+layout: base.hbs
+---
+
+<h1>{{ title }}</h1>
+<p class="post-date">{{ date }}</p>
+{{#if thumbnail}}
+  <img src="{{ thumbnail }}" alt="{{ title }}">
+{{/if}}
+
+<div class="post-content">
+  {{{ contents }}} 
+</div>
+
+<p class="post-categories">
+  Categories:
+  {{#each categories}}
+    <a href="/blog/category/{{ this }}">{{ this }}</a>
+  {{/each}}
+</p>
