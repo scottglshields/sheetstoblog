@@ -1,0 +1,28 @@
+---
+layout: base.hbs // Assuming you have a base layout for your blog
+---
+
+<article class="blog-post">
+
+  <header>
+    <h1>{{ title }}</h1>
+    <p class="post-date">{{ date }}</p>
+    {{#if thumbnail}}
+      <img src="{{ thumbnail }}" alt="{{ title }}" class="post-thumbnail">
+    {{/if}}
+
+    {{#if categories.length}}
+      <p class="post-categories">
+        Categories:
+        {{#each categories}}
+          <a href="/blog/category/{{ this }}">{{ this }}</a>{{#unless @last}}, {{/unless}}
+        {{/each}}
+      </p>
+    {{/if}}
+  </header>
+
+  <div class="post-content">
+    {{{ contents }}}  // Triple curly braces to render Markdown as HTML
+  </div>
+
+</article>
